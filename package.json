@@ -1,0 +1,19 @@
+{
+  "name": "gem_analysis",
+  "version": "1.0.0",
+  "description": "## _Or an exercise in getting cron to run Ruby scripts_",
+  "main": "say_hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claireparker/Get-Gem-Data-Script.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claireparker/Get-Gem-Data-Script/issues"
+  },
+  "homepage": "https://github.com/claireparker/Get-Gem-Data-Script#readme"
+}
