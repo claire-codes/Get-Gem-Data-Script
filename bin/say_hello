@@ -1,4 +1,4 @@
-#! /app/.heroku/node/bin/node!
+#!/app/.heroku/node/bin/node
 function sayHello() {
   console.log('Howdy ho');
 }
