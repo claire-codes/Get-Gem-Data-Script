@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
-def say_hello
-  puts 'whoopsie doodle'
-end
+require_relative '../lib/get_gem_data'
 
-say_hello
+record_downloads_for('emoji-commit')
+record_downloads_for('cheerup')

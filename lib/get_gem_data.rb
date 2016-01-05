@@ -16,11 +16,7 @@ def api_stat(gem_name)
 end
 
 def record_downloads_for(gem_name)
-  total_stat = api_stat(gem_name)
-  todays_date = Time.now.strftime("%d-%m-%y")
-
-  filename = "#{gem_name}-data.json"
-  filepath = File.join(File.dirname(File.expand_path(__FILE__)), filename)
+  filepath = File.join(File.expand_path('../data', File.dirname(__FILE__)), "#{gem_name}-data.json")
 
   if File.exist?(filepath)
     prev_data = File.read(filepath)
@@ -29,10 +25,15 @@ def record_downloads_for(gem_name)
     hash = {}
   end
 
-  hash[todays_date] = total_stat
+
+  todays_stat = api_stat(gem_name)
+  todays_date = Time.now.strftime("%d-%m-%y")
+  hash[todays_date] = todays_stat
+
   File.open(filepath, 'w') do |file|
     file.puts JSON.pretty_generate(hash)
   end
+  puts 'it worked'
 end
 
 record_downloads_for('emoji-commit')
