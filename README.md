@@ -33,3 +33,4 @@ There is an rvm gemset call gemanalysis which contains the Mechanize and Nokogir
 
 * It could be classed and called from a separate Ruby script for the separate gems but meh.
 * It could record the version of the gem.
+* Should the downloads be a string or a number?

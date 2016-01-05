@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+def say_hello
+  puts 'whoopsie doodle'
+end
+
+say_hello
