@@ -12,22 +12,20 @@ def scrape_stat(gem_name)
 end
 
 def api_stat(gem_name)
-  Gems.info(gem_name)["downloads"].to_s
+  Gems.info(gem_name)['downloads'].to_s
 end
 
 def record_downloads_for(gem_name)
-  filepath = File.join(File.expand_path('../data', File.dirname(__FILE__)), "#{gem_name}-data.json")
-
+  filepath = File.join(File.expand_path('..', File.dirname(__FILE__)), "#{gem_name}-data.json")
+  hash = {}
+  
   if File.exist?(filepath)
     prev_data = File.read(filepath)
     hash = JSON.parse(prev_data)
-  else
-    hash = {}
   end
 
-
   todays_stat = api_stat(gem_name)
-  todays_date = Time.now.strftime("%d-%m-%y")
+  todays_date = Time.now.strftime('%d-%m-%y')
   hash[todays_date] = todays_stat
 
   File.open(filepath, 'w') do |file|
@@ -35,6 +33,3 @@ def record_downloads_for(gem_name)
   end
   puts 'it worked'
 end
-
-record_downloads_for('emoji-commit')
-record_downloads_for('cheerup')
