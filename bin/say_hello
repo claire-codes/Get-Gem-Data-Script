@@ -1,5 +1,0 @@
-#!/app/.heroku/node/bin/node
-function sayHello() {
-  console.log('It is aiiiiiive');
-}
-sayHello();
