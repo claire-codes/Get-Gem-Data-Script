@@ -18,8 +18,9 @@ end
 def record_downloads_for(gem_name)
   filepath = File.join(File.expand_path('..', File.dirname(__FILE__)), "#{gem_name}-data.json")
   hash = {}
-  
+
   if File.exist?(filepath)
+    puts "Writing to #{filepath}"
     prev_data = File.read(filepath)
     hash = JSON.parse(prev_data)
   end
@@ -30,6 +31,7 @@ def record_downloads_for(gem_name)
 
   File.open(filepath, 'w') do |file|
     file.puts JSON.pretty_generate(hash)
+    puts "Written #{todays_stat}"
   end
-  puts 'it worked'
+
 end
