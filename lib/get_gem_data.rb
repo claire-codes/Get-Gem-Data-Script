@@ -4,6 +4,10 @@ require 'mechanize'
 require 'nokogiri'
 require 'json'
 require 'gems'
+require 'mongoid'
+require_relative './Stat'
+
+Mongoid.load!('mongoid.yml', :development)
 
 def scrape_stat(gem_name)
   page = Mechanize.new.get("https://rubygems.org/gems/#{gem_name}")
@@ -33,5 +37,4 @@ def record_downloads_for(gem_name)
     file.puts JSON.pretty_generate(hash)
     puts "Written #{todays_stat}"
   end
-
 end
